@@ -5,10 +5,10 @@ pub fn read_puzzle_input(day: u8,test:bool) -> Vec<String> {
   path = path.join(format!("./puzzle-input/day{}/",day));
 
   if test {
-    path = path.join("input");
+    path = path.join("input.test");
   }
   else {
-    path = path.join("input.test");
+    path = path.join("input");
   }
 
   println!("{:?}",path);
