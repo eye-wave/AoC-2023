@@ -20,11 +20,11 @@ pub fn part1(input: &Vec<String>) -> u16 {
                 });
 
                 if red > red_count || green > green_count || blue > blue_count {
-                    return 0;
+                    0;
                 }
             }
 
-            return game.id as u16;
+            game.id as u16
         })
         .sum()
 }
