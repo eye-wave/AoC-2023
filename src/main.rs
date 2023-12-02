@@ -15,6 +15,7 @@ fn main() {
 
     match day {
         1 => days::day1::run(content),
+        2 => days::day2::run(content),
         _ => println!("day {} not implemented yet.", day),
     }
 }
