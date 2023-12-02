@@ -17,5 +17,4 @@ jobs:
     steps:
     - uses: actions/checkout@v3
     - name: format
-      run: |
-      cargo fmt && git config --global user.name "Github Actions"; git commit -am "chore: cargo fmt"; git push origin main
+      run: cargo fmt && git config --global user.name "Github Actions"; git commit -am "chore: cargo fmt"; git push origin main
