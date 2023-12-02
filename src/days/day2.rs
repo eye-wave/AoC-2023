@@ -35,30 +35,11 @@ pub fn part2(input: &Vec<String>) -> u32 {
         .map(|line| {
             let game = get_sets_from_line(line);
 
-            let colors = game
-                .groups
-                .into_iter()
-                .flatten()
-                .collect::<Vec<ColorCount>>();
+            let colors = game.groups.into_iter().flatten().collect::<Vec<ColorCount>>();
 
-            let red = colors
-                .iter()
-                .filter(|col| col.color == Colors::Red)
-                .max_by_key(|col| col.number)
-                .unwrap()
-                .number as usize;
-            let green = colors
-                .iter()
-                .filter(|col| col.color == Colors::Green)
-                .max_by_key(|col| col.number)
-                .unwrap()
-                .number as usize;
-            let blue = colors
-                .iter()
-                .filter(|col| col.color == Colors::Blue)
-                .max_by_key(|col| col.number)
-                .unwrap()
-                .number as usize;
+            let red = colors.iter().filter(|col| col.color == Colors::Red).max_by_key(|col| col.number).unwrap().number as usize;
+            let green = colors.iter().filter(|col| col.color == Colors::Green).max_by_key(|col| col.number).unwrap().number as usize;
+            let blue = colors.iter().filter(|col| col.color == Colors::Blue).max_by_key(|col| col.number).unwrap().number as usize;
 
             (red * green * blue) as u32
         })

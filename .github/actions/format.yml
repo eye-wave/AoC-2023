@@ -1,0 +1,27 @@
+name: Code formatting
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  format:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Set up Rust
+        uses: actions/setup-rust@v1
+        with:
+          rust-version: stable
+
+      - name: Format code
+        run: |
+          git config --global
+          git config --global user.name "GitHub Actions"
+          cargo fmt --all -- --check || (cargo fmt --all && git diff --exit-code && git commit -am "chore: apply code formatting")
